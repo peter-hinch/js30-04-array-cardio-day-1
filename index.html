@@ -150,6 +150,17 @@
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
 
+    const transportation = data.reduce(function(obj, item){
+      //!obj[item] ? obj[item] = 0 : obj[item]++;
+      if(!obj[item]) {
+        obj[item] = 0;
+      }
+      obj[item]++;
+      return obj;
+    }, {}); // second argument is a blank object to begin with
+
+    console.log("8. Reduce Exercise");
+    console.log(transportation);
   </script>
 </body>
 </html>
