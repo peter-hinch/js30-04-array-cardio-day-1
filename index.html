@@ -137,12 +137,14 @@
 
     // 7. Sort Exercise
     // Sort the people alphabetically by last name
-    const alpha = people.sort(function(lastOne, nextOne) {
-      console.log(lastOne);
-    })
+    const alpha = people.sort((lastOne, nextOne) => {
+    const [aLast, aFirst] = lastOne.split(', ');
+    const [bLast, bFirst] = nextOne.split(', ');
+    return aLast > bLast ? 1 : -1;
+    });
     
     console.log("7. Sort Exercise");
-    console.table(oldest);
+    console.log(alpha);
 
     // 8. Reduce Exercise
     // Sum up the instances of each of these
