@@ -99,7 +99,6 @@
     // const oldest = inventors.sort(function(a, b) {
     //   const lastGuy = a.passed - a.year;
     //   const nextGuy = b.passed - b.year;
-
     //   if(lastGuy > nextGuy) {
     //     return -1;
     //   } else {
@@ -119,10 +118,26 @@
 
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
-
+    // (run the following code in the console in Chrome browser while at the URL above)
+    
+    // mw-category is the class where the information we want is located:
+    const category = document.querySelector('.mw-category');
+    
+    // find the link tags:
+    // querySelector and querySelectorAll return a nodeList (no map method available)
+    // so we use a spread operator to convert it into an array so we can use map
+    //const links = [...category.querySelectorAll('a')];
+    // alternatively you could use Array.from() instead of spread
+    const links = Array.from(category.querySelectorAll('a'));
+    
+    // find textContent and filter for names including 'de':
+    const de = links
+      .map(link => link.textContent)
+      .filter(streetName => streetName.includes('de'));
 
     // 7. sort Exercise
     // Sort the people alphabetically by last name
+    
 
     // 8. Reduce Exercise
     // Sum up the instances of each of these
